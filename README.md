@@ -24,7 +24,7 @@ First, prepare your Ubuntu bare-metal, by running:
 Clone this repo and build Pi-KVMD Debian package for Ubuntu 20.04!
 
     cd ~
-    git clone https://github.com/tmartinx/pikvmd-ubuntu-build
+    git clone https://github.com/tmartinx/pikvm-ubuntu-build.git
 
 ## Building kvmd on Docker Container
 
@@ -142,3 +142,4 @@ During the initial tests, for the simplicity's sake, the following dependencies 
 There is also an interesting piece of software on Ubuntu, called `python3-serial-asyncio`, could it improve `kvmd` somehow, since it depends on `python3-serial` and the `asyncio` version sounds cool?
 
 More investigation is required to fully understand everything from the pikvm/kvmd source code!
+
