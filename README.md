@@ -6,12 +6,12 @@ Pi-KVM Ubuntu-based Experimental Build
 
 Requirements:
 
-* Ubuntu Core 20.04 arm64
+* Ubuntu Server 20.04 arm64
 * Raspberry Pi4 4GB of RAM
 
 NOTE: It should work with 2GB of RAM if you change the "-j4" to "-j2" within the build scripts)
 
-## Prepare your Ubuntu Core 20.04 Bare-Metal
+## Prepare your Ubuntu Server 20.04 Bare-Metal
 
 First, prepare your Ubuntu bare-metal, by running:
 
@@ -30,7 +30,7 @@ Clone this repo and build Pi-KVMD Debian package for Ubuntu 20.04!
 
 NOTE: THIS IS A PROTOTYPE!
 
-### Ubuntu Core 20.04 Container
+### Ubuntu Server 20.04 Container
 
 Install Docker
 
@@ -46,7 +46,7 @@ Building `kvmd`!
     cd ~/pikvmd-ubuntu-build
     docker build -f Dockerfile.focal -t pikvm-build-1 .
 
-After this process, which takes about 9 minutes, you'll have a APT repository with the packages necessary to install Pi-KVMD on virtually any Ubuntu Core 20.04!
+After this process, which takes about 9 minutes, you'll have a APT repository with the packages necessary to install Pi-KVMD on virtually any Ubuntu Server 20.04!
 
 ### Debian 11 (Testing) Container
 
@@ -64,7 +64,7 @@ Building `kvmd`!
     cd ~/pikvmd-ubuntu-build
     docker build -f Dockerfile.bullseye -t pikvm-build-2 .
 
-After this process, which takes about 5 minutes, you'll have a APT repository with the packages necessary to install Pi-KVMD on virtually any Ubuntu Core 20.04!
+After this process, which takes about 5 minutes, you'll have a APT repository with the packages necessary to install Pi-KVMD on virtually any Ubuntu Server 20.04!
 
 ### Accessing the container
 
@@ -78,7 +78,7 @@ To wipe out Docker images and containers (clean up your small micro SD)
 
     docker system prune -a
 
-## Building kvmd on Ubuntu Core 20.04 Bare-Metal
+## Building kvmd on Ubuntu Server 20.04 Bare-Metal
 
 The following procedure uses the very same Bash scripts that the `Dockerfile.focal` used previously but, you're supposed to run those directly in your Raspberry Pi4 bare-metal.
 

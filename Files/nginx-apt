@@ -1,5 +1,5 @@
 #
-# KVMD's APT repo server configuration
+# KVMD's APT Repo server configuration
 #
 server {
 	listen 80 default_server;
@@ -14,5 +14,4 @@ server {
 	location / {
 		try_files $uri $uri/ =404;
 	}
-
 }
