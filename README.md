@@ -11,19 +11,19 @@ NOTE: It should work with 2GB of RAM if you change the "-j4" to "-j2" within the
 
 ## Prepare your Ubuntu Core 20.04 Bare-Metal
 
-- First, prepare your Ubuntu bare-metal, by running:
+* First, prepare your Ubuntu bare-metal, by running:
 
     sudo apt update
     sudo apt install git
 
-- Clone this repo and build Pi-KVMD Debian package for Ubuntu 20.04!
+* Clone this repo and build Pi-KVMD Debian package for Ubuntu 20.04!
 
     cd ~
     git clone https://github.com/tmartinx/pikvmd-ubuntu-build
 
 ## Building kvmd on Ubuntu 20.04 Docker Container
 
-- Install Docker
+* Install Docker
 
 NOTE: This procedure assumes that your Ubuntu's `default_user` is called `ubuntu`.
 
@@ -32,7 +32,7 @@ NOTE: This procedure assumes that your Ubuntu's `default_user` is called `ubuntu
 
 Logoff and login again (so `ubuntu` user can use Docker).
 
-- Building `kvmd`!
+* Building `kvmd`!
 
     cd ~/pikvmd-ubuntu-build
     docker build -f Dockerfile -t pikvm-ubuntu-1 .
@@ -42,11 +42,11 @@ to install Pi-KVMD on virtually any Ubuntu Core 20.04!
 
 NOTE: THIS IS A PROTOTYPE!
 
-- To create/start a container and see what's in there (and maybe copy the files to your Bare-Metal Ubuntu):
+* To create/start a container and see what's in there (and maybe copy the files to your Bare-Metal Ubuntu):
 
     docker run -ti pikvm-ubuntu-1 /bin/bash
 
-- To wipe out Docker images and containers (clean up your small micro SD)
+* To wipe out Docker images and containers (clean up your small micro SD)
 
     docker system prune -a
 
