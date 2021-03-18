@@ -60,44 +60,23 @@ RUN apt-get -y build-dep stdeb \
 
 RUN apt-get update \
     && apt-get -y install \
-       libevent-dev \
-       libbsd-dev \
-       python3 \
-       python-is-python3 \
-       python3-all-dev \
-       dh-python \
-       python3-mako \
-       python3-yaml \
-       python3-aiohttp \
-       python3-aiofiles \
-       python3-passlib \
-       python3-serial \
-       python3-setproctitle \
-       python3-psutil \
-       python3-systemd \
-       python3-dbus \
        python3-pygments \
-       python3-pam \
-       python3-pil \
-       python3-xlib \
-       python3-hidapi \
+       python3-psutil \
+       python3-setproctitle \
+       python3-aiofiles \
+       python3-yaml \
        python3-libgpiod \
-       python3-pyghmi
+       python3-passlib \
+       python3-aiohttp \
+       python3-dbus \
+       python3-serial \
+       python3-systemd \
+       python3-xlib \
+       python3-pyghmi \
+       python3-pil
 
 
 # Layer 7 - kvmd build/package
-
-#
-# IMPORT NOTE:
-#
-# The pikvm/kvmd source code contains much more things than the kvmd itself! It
-# configures the nginx, uses npm stuff and etc. This is Err... Okay but, kinda
-# bad.
-#
-# It would be better to completely isolate things, where the kvmd would contain
-# only the kvmd itself, and the rest, needed to build the OS image, would be in
-# a different source repo (Packer with Ansible sounds like fun)!
-#
 
 RUN mkdir /root/kvmd \
     && cd /root/kvmd \
@@ -106,3 +85,4 @@ RUN mkdir /root/kvmd \
     && py2dsc --with-dh-systemd --compat 10 kvmd-2.33.tar.gz \
     && cd /root/kvmd/deb_dist/kvmd-2.33 \
     && dpkg-buildpackage -rfakeroot -uc -us -j4
+
