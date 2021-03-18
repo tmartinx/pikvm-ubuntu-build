@@ -1,0 +1,18 @@
+#
+# KVMD's APT repo server configuration
+#
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /home/kvmd-builder/apt;
+
+        autoindex on;
+
+	server_name _;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+}
