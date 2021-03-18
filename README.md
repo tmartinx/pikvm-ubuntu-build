@@ -135,9 +135,10 @@ During the initial tests, for the simplicity's sake, the following dependencies 
 
     libevent-dev
     libbsd-dev
-    dh-python
     python3-mako
     python3-pam
     python3-hidapi
 
 There is also an interesting piece of software on Ubuntu, called `python3-serial-asyncio`, could it improve `kvmd` somehow, since it depends on `python3-serial` and the `asyncio` version sounds cool?
+
+More investigation is required to fully understand everything from the pikvm/kvmd source code!
