@@ -2,6 +2,8 @@
 
 Pi-KVM Ubuntu-based Experimental Build
 
+*NOTE: This is a community build and not officially supported, no guarantee to even work!*
+
 Requirements:
 
 * Ubuntu Core 20.04 arm64
@@ -24,7 +26,11 @@ Clone this repo and build Pi-KVMD Debian package for Ubuntu 20.04!
     cd ~
     git clone https://github.com/tmartinx/pikvmd-ubuntu-build
 
-## Building kvmd on Ubuntu 20.04 Docker Container
+## Building kvmd on Docker Container
+
+NOTE: THIS IS A PROTOTYPE!
+
+### Ubuntu Core 20.04 Container
 
 Install Docker
 
@@ -38,16 +44,35 @@ Logoff and login again (so `ubuntu` user can use Docker).
 Building `kvmd`!
 
     cd ~/pikvmd-ubuntu-build
-    docker build -f Dockerfile.focal -t pikvm-ubuntu-1 .
+    docker build -f Dockerfile.focal -t pikvm-build-1 .
 
-After this process, you'll have a APT repository with the packages necessary
-to install Pi-KVMD on virtually any Ubuntu Core 20.04!
+After this process, which takes about 9 minutes, you'll have a APT repository with the packages necessary to install Pi-KVMD on virtually any Ubuntu Core 20.04!
 
-NOTE: THIS IS A PROTOTYPE!
+### Debian 11 (Testing) Container
+
+Install Docker
+
+NOTE: This procedure assumes that your Debian's `default_user` is called `debian`.
+
+    sudo apt install docker.io
+    sudo adduser debian docker
+
+Logoff and login again (so `debian` user can use Docker).
+
+Building `kvmd`!
+
+    cd ~/pikvmd-ubuntu-build
+    docker build -f Dockerfile.bullseye -t pikvm-build-2 .
+
+After this process, which takes about 5 minutes, you'll have a APT repository with the packages necessary to install Pi-KVMD on virtually any Ubuntu Core 20.04!
+
+### Accessing the container
 
 To create/start a container and see what's in there (and maybe copy the files to your Bare-Metal Ubuntu):
 
-    docker run -ti pikvm-ubuntu-1 /bin/bash
+    docker run -ti pikvm-build-1 /bin/bash   # or "pikvm-build-2", or "whatever-name-you-created-previsouly-x"...
+
+### Cleaning up Docker stuff
 
 To wipe out Docker images and containers (clean up your small micro SD)
 
@@ -75,6 +100,8 @@ NOTE: This procedure assumes that your Ubuntu's `default_user` is called `ubuntu
 
 After this process, the `kvmd` will be available at `~/apt/ubuntu/pool/main/python3-kvmd_2.33-1_all.deb`!!!
 
+NOTE: Take a look at the Dockerfile.bullseye to see the required steps to build it on an Bare-Metal Debian.
+
 ## The local APT repository
 
 The procedure builds a local APT repository for you! To use it, you'll have to add it to your `/etc/apt/sources.list.d` subdir.
@@ -85,6 +112,8 @@ Then:
 
     sudo apt update
     sudo apt install python3-kvmd
+
+NOTE: The procedure for Debian is similar but not ready yet!
 
 ## The Pi-KVM Build and Runtime Dependencies
 
