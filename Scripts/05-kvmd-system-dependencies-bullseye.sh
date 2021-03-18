@@ -3,6 +3,7 @@
 # Layer for kvmd's build dependencies
 
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
+  dh-python \
   python3-pygments \
   python3-psutil \
   python3-setproctitle \
