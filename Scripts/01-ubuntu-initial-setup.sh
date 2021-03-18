@@ -18,10 +18,19 @@ then
     exit 1
 fi
 
-if id -u $DEFAULT_USER > /dev/null
+
+# First Update
+apt-get update
+
+# Install basic packages
+apt-get -y install apt-utils sudo dialog
+
+
+if id -u $DEFAULT_USER &> /dev/null
 then
-    echo "*** WARNING! DEFAULT_USER already exists, not creating it again."
+    echo "*** WARNING! DEFAULT_USER already exist, skipping user creation."
 else
+    echo "*** The DEFAULT_USER doesn't exist, creating it."
     # Create a regular user for the build process
     useradd -ms /bin/bash $DEFAULT_USER
     usermod -a -G sudo $DEFAULT_USER
@@ -35,13 +44,6 @@ if [ ! -d /home/$DEFAULT_USER/sources ]
 then
     su - $DEFAULT_USER -c 'mkdir ~/sources'
 fi
-
-
-# First Update
-apt-get update
-
-# Install basic packages
-apt-get -y install apt-utils sudo dialog
 
 # Install Ubuntu Cloud Archive Keyring and build tools
 apt-get -y install ubuntu-cloud-keyring gnupg build-essential dpkg-dev wget

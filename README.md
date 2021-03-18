@@ -14,6 +14,9 @@ NOTE: It should work with 2GB of RAM if you change the "-j4" to "-j2" within the
 First, prepare your Ubuntu bare-metal, by running:
 
     sudo apt update
+    sudo apt full-upgrade # Optional
+    sudo apt install zram-config # Free RAM! lol - Optional
+    sudo apt install linux-generic-hwe-20.04 # Creepy new Linux - Optional
     sudo apt install git
 
 Clone this repo and build Pi-KVMD Debian package for Ubuntu 20.04!
@@ -35,7 +38,7 @@ Logoff and login again (so `ubuntu` user can use Docker).
 Building `kvmd`!
 
     cd ~/pikvmd-ubuntu-build
-    docker build -f Dockerfile -t pikvm-ubuntu-1 .
+    docker build -f Dockerfile.focal -t pikvm-ubuntu-1 .
 
 After this process, you'll have a APT repository with the packages necessary
 to install Pi-KVMD on virtually any Ubuntu Core 20.04!
@@ -52,7 +55,7 @@ To wipe out Docker images and containers (clean up your small micro SD)
 
 ## Building kvmd on Ubuntu Core 20.04 Bare-Metal
 
-The following procedure uses the very same Bash scripts that the Dockerfile used previously but, you're supposed to run those directly in your Raspberry Pi4 bare-metal.
+The following procedure uses the very same Bash scripts that the `Dockerfile.focal` used previously but, you're supposed to run those directly in your Raspberry Pi4 bare-metal.
 
 You'll need to run those scripts with a regular Ubuntu user with `sudo` powers!
 
