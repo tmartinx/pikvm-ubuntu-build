@@ -1,0 +1,20 @@
+FROM debian:bullseye
+
+ENV DEBIAN_FRONTEND noninteractive
+
+ENV TERM linux
+
+ENV DEFAULT_USER kvmd-builder
+
+COPY Scripts/01-debian-initial-setup.sh /tmp
+RUN /tmp/01-debian-initial-setup.sh
+
+USER kvmd-builder
+
+COPY Scripts/05-kvmd-system-dependencies-bullseye.sh /tmp
+RUN /tmp/05-kvmd-system-dependencies-bullseye.sh
+
+COPY Scripts/06-build-kvmd.sh /tmp
+RUN /tmp/06-build-kvmd.sh
+
+WORKDIR /home/$DEFAULT_USER
