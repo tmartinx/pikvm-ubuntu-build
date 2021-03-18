@@ -4,6 +4,8 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ENV TERM linux
 
+ENV DEFAULT_USER kvmd-builder
+
 COPY Scripts/01-ubuntu-initial-setup.sh /tmp
 RUN /tmp/01-ubuntu-initial-setup.sh
 
@@ -33,4 +35,4 @@ RUN /tmp/08-apt-sync-local-repo.sh
 COPY Scripts/09-apt-nginx-config.sh /tmp
 RUN /tmp/09-apt-nginx-config.sh
 
-WORKDIR /home/kvmd-builder
+WORKDIR /home/$DEFAULT_USER
