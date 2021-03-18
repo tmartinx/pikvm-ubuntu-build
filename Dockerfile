@@ -32,7 +32,7 @@ RUN /tmp/07-move-deb-packages-to-repo-dir.sh
 COPY Scripts/08-apt-sync-local-repo.sh /tmp
 RUN /tmp/08-apt-sync-local-repo.sh
 
-COPY Scripts/09-apt-nginx-config.sh /tmp
-RUN /tmp/09-apt-nginx-config.sh
+#COPY Scripts/09-apt-nginx-config.sh /tmp
+#RUN /tmp/09-apt-nginx-config.sh
 
 WORKDIR /home/$DEFAULT_USER
