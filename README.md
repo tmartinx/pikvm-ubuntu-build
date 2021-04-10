@@ -143,3 +143,54 @@ There is also an interesting piece of software on Ubuntu, called `python3-serial
 
 More investigation is required to fully understand everything from the pikvm/kvmd source code!
 
+
+kvmd
+
+
+python
+python-yaml
+python-aiohttp
+python-aiofiles
+python-passlib
+python-pyserial
+python-spidev
+python-setproctitle
+python-psutil
+python-systemd
+python-dbus
+python-pygments
+python-pyghmi
+python-pam
+python-pillow
+python-xlib
+python-hidapi
+libgpiod
+
+freetype2
+v4l-utils
+nginx-mainline
+openssl
+platformio
+avrdude-svn
+make
+patch
+sudo
+iptables
+iproute2
+dnsmasq
+
+
+system?
+
+raspberrypi-io-access
+ustreamer-3.20
+
+
+dhclient
+netctl
+
+## TODO
+
+Research about:
+
+https://github.com/pikvm/pikvm/blob/master/pages/building_os.md
