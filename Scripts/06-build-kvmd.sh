@@ -6,13 +6,13 @@ mkdir ~/sources/kvmd
 
 pushd ~/sources/kvmd
 
-wget https://github.com/pikvm/kvmd/archive/v2.33.tar.gz
+wget https://github.com/pikvm/kvmd/archive/v2.41.tar.gz
 
-mv v2.33.tar.gz kvmd-2.33.tar.gz
+mv v2.41.tar.gz kvmd-2.41.tar.gz
 
-py2dsc --with-dh-systemd --compat 10 kvmd-2.33.tar.gz
+py2dsc --with-dh-systemd --compat 10 kvmd-2.41.tar.gz
 
-pushd ~/sources/kvmd/deb_dist/kvmd-2.33
+pushd ~/sources/kvmd/deb_dist/kvmd-2.41
 
 dpkg-buildpackage -rfakeroot -uc -us -j4
 
