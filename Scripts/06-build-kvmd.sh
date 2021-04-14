@@ -2,17 +2,19 @@
 
 # Layer 7 - kvmd build/package
 
+PIKVM_VERSION="2.42"
+
 mkdir ~/sources/kvmd
 
 pushd ~/sources/kvmd
 
-wget https://github.com/pikvm/kvmd/archive/v2.41.tar.gz
+wget https://github.com/pikvm/kvmd/archive/v${PIKVM_VERSION}.tar.gz
 
-mv v2.41.tar.gz kvmd-2.41.tar.gz
+mv v${PIKVM_VERSION}.tar.gz kvmd-${PIKVM_VERSION}.tar.gz
 
-py2dsc --with-dh-systemd --compat 10 kvmd-2.41.tar.gz
+py2dsc --with-dh-systemd --compat 10 kvmd-${PIKVM_VERSION}.tar.gz
 
-pushd ~/sources/kvmd/deb_dist/kvmd-2.41
+pushd ~/sources/kvmd/deb_dist/kvmd-${PIKVM_VERSION}
 
 dpkg-buildpackage -rfakeroot -uc -us -j4
 
