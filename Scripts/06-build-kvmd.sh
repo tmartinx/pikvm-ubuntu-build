@@ -2,7 +2,7 @@
 
 # Layer 7 - kvmd build/package
 
-PIKVM_VERSION="2.50"
+PIKVM_VERSION="2.52"
 
 mkdir ~/sources/kvmd
 
